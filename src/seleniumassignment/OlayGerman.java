@@ -44,8 +44,8 @@ public class OlayGerman {
 		driver.findElement(By.xpath("//*[@id='phdesktopbody_0_RegisterLink']")).click();
 		
 		driver.findElement(By.xpath("//*[@id='phdesktopbody_0_imgfemale']")).click();
-		driver.findElement(By.xpath("//*[@name='phdesktopbody_0$phdesktopbody_0_grs_consumer[firstname]']")).click();
-		driver.findElement(By.xpath("//*[@name='phdesktopbody_0$phdesktopbody_0_grs_consumer[firstname]")).sendKeys("Oviya");
+		driver.findElement(By.xpath("//*[@id='phdesktopbody_0_grs_consumer[firstname]']")).click();
+		driver.findElement(By.xpath("//*[@id='phdesktopbody_0_grs_consumer[firstname]']")).sendKeys("Oviya");
 		driver.findElement(By.xpath("//*[@name='phdesktopbody_0$phdesktopbody_0_grs_consumer[lastname]']")).click();
         driver.findElement(By.xpath("//*[@name='phdesktopbody_0$phdesktopbody_0_grs_consumer[lastname]']")).sendKeys("Kumar");
 		WebElement userNameBx =driver.findElement(By.xpath("//*[@name='phdesktopbody_0$phdesktopbody_0_grs_account[emails][0][address]']"));
@@ -53,22 +53,24 @@ public class OlayGerman {
 		int randomAddress = randomGenerator.nextInt(1000);  
 		userNameBx.sendKeys("username"+ randomAddress +"@gmail.com");  
 		
-		String emailAddress = driver.findElement(By.xpath("//*[@name='phdesktopbody_0$phdesktopbody_0_grs_account[emails][0][address]']")).getText();
-		System.out.println("Registered EmailAddress is" + emailAddress);
+		//String emailAddress = driver.findElement(By.xpath("//*[@name='phdesktopbody_0$phdesktopbody_0_grs_account[emails][0][address]']")).getText();
+		userNameBx.click();
+		System.out.println("Registered EmailAddress is" +userNameBx.getText());
 		
 		
 		WebElement passwordBx =driver.findElement(By.xpath("//*[@name='phdesktopbody_0$phdesktopbody_0_grs_account[password][password]']"));
 		passwordBx.click();
 		int randompassword = randomGenerator.nextInt(100);  
-		userNameBx.sendKeys("Oviyakumar"+ randompassword);  
+		passwordBx.sendKeys("Oviyakumar"+ randompassword);  
 		
 		String Password = driver.findElement(By.xpath("//*[@name='phdesktopbody_0$phdesktopbody_0_grs_account[password][password]']")).getText();
-		System.out.println("Registered Password is" + Password);
+		System.out.println("Registered Password is" +Password);
+		driver.findElement(By.xpath("//*[@name='phdesktopbody_0$phdesktopbody_0_grs_account[password][confirm]']")).click();
 		driver.findElement(By.xpath("//*[@name='phdesktopbody_0$phdesktopbody_0_grs_account[password][confirm]']")).sendKeys(Password);
 		
 		
 		
-		driver.findElement(By.xpath("//*[@name='phdesktopbody_0$phdesktopbody_0_username']")).sendKeys("oviyakumar08@yahoo.com");
+	//	driver.findElement(By.xpath("//*[@name='phdesktopbody_0$phdesktopbody_0_username']")).sendKeys("oviyakumar08@yahoo.com");
 //		 
 //		 driver.findElement(By.xpath("//*[@name='phdesktopbody_0$phdesktopbody_0_grs_account[emails][0][address]']")).click();
 //		 driver.findElement(By.xpath("//*[@name='phdesktopbody_0$phdesktopbody_0_password']")).sendKeys("Ovikumar18");
